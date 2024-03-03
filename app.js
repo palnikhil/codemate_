@@ -25,33 +25,7 @@ const app = new App({
 async function handlePullRequestOpened({octokit, payload}) {
     let messageForNewPRs = "New PR";
     console.log(`Received a pull request event for #${payload.pull_request.number}`);
-    //console.log(payload)
-    // try{
-    //     const res = await octokit.request("GET /repos/{owner}/{repo}/commits/{sha}", {
-    //         owner: payload.repository.owner.login,
-    //         repo: payload.repository.name,
-    //         sha: payload.pull_request.head.sha,
-    //         headers: {
-    //           "x-github-api-version": "2022-11-28",
-    //         },
-    //     });
-    //     console.log(res.body)
-    //     const data = JSON.parse(res.body);
-    //     const files = data.files;
-    //     const codeContents = {};
-    //     for (const file of files) {
-    //       const filename = file.filename;
-    //       const content = file.content;
-    //       codeContents[filename] = content;
-    //     }
-    //     console.log(codeContents)
-    // }
-    // catch (error) {
-    //       if (error.response) {
-    //         console.error(`Error! Status: ${error.response.status}. Message: ${error.response.data.message}`)
-    //       }
-    //       console.error(error)
-    // }
+
     let title = String(payload.pull_request.title)
     console.log(title)
     if(title.includes('/execute'))
